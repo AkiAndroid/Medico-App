@@ -34,7 +34,7 @@
         app:layout_constraintTop_toBottomOf="@+id/phoneNumberEdit" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned"
+        android:id="@+id/OtpEditTEXT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
@@ -42,7 +42,11 @@
         android:layout_marginTop="204dp"
         android:background="@drawable/edittext_backg"
         android:ems="10"
+        android:hint="  OTP"
         android:inputType="numberSigned"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,6 +57,7 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/button_backg"
         android:text="Verify"
+        android:visibility="invisible"
         app:backgroundTint="@color/black"
         app:layout_constraintStart_toStartOf="@+id/phoneNumberEdit"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumberEdit" />

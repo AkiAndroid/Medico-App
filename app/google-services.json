@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "743102268318",
+    "project_id": "medico-app-7172d",
+    "storage_bucket": "medico-app-7172d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743102268318:android:d1352479036c93be640c8f",
+        "android_client_info": {
+          "package_name": "com.example.medicoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743102268318-2r7oku9q1mfjug1bcnqhi760tfrciiek.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ8QZsTg6Ng7x1zc7bfenRXOOwOMD1ISA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743102268318-2r7oku9q1mfjug1bcnqhi760tfrciiek.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

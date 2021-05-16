@@ -1,5 +1,6 @@
 package com.example.medicoapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -8,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -38,6 +40,8 @@ class MainActivity : AppCompatActivity() {
        getOtp=findViewById(R.id.getOTPbutton)
        verifyOtp=findViewById(R.id.VerifyButton)
 
+
+
        mauth=FirebaseAuth.getInstance()
 
         getOtp.setOnClickListener{
@@ -49,6 +53,10 @@ class MainActivity : AppCompatActivity() {
             else{
                 var number:String="+91"+PhoneNum.text.toString()
                 SendVerification(number)
+                PhoneNum.visibility=0
+                Otp.visibility=1
+                getOtp.visibility=0
+                verifyOtp.visibility=1
 
 
             }
@@ -60,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
     fun SendVerification(number:String){
 
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(number,60,TimeUnit.SECONDS,this,mcallBack)
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(number,30,TimeUnit.SECONDS,this,mcallBack)
     }
 
     var mcallBack:PhoneAuthProvider.OnVerificationStateChangedCallbacks=object:
@@ -97,9 +105,12 @@ class MainActivity : AppCompatActivity() {
 
     fun signInWithCredential(credential: PhoneAuthCredential){
 
-        mauth.signInWithCredential(credential).addOnCompleteListener(object :OnCompleteListener<AuthResult>{
+       mauth.signInWithCredential(credential).addOnCompleteListener(object :OnCompleteListener<AuthResult>{
             override fun onComplete(p0: Task<AuthResult>) {
                 if(p0.isSuccessful){
+                   var intent=Intent(applicationContext,FirstTimeLogin::class.java)
+                    intent.putExtra("number",PhoneNum.text.toString())
+                    startActivity(intent)
 
                 }
             }
